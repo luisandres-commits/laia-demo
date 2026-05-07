@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Clínica Estética Vita — Demo LAIA Solutions</title>
+  <title>Clínica Estética Lexi — Demo LAIA Solutions</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@1,400;1,500;1,600&display=swap" rel="stylesheet" />
@@ -16,18 +16,22 @@
     }
 
     :root {
-      --bg: #0a0a0a;
-      --surface: #111111;
-      --surface-2: #161616;
-      --border: rgba(255, 255, 255, 0.07);
-      --border-active: rgba(255, 255, 255, 0.14);
-      --text-primary: #f0f0f0;
-      --text-secondary: #888;
-      --text-muted: #555;
-      --blue: #3b82f6;
-      --violet: #8b5cf6;
-      --green-dot: #22c55e;
-      --whatsapp: #25D366;
+      --bg-primary:     #FAFBFC;
+      --bg-secondary:   #FFFFFF;
+      --accent-primary: #4A90B8;
+      --accent-light:   #B8DDD4;
+      --accent-hover:   #3A7A9E;
+      --text-primary:   #1F2937;
+      --text-secondary: #6B7280;
+      --border:         #E5E7EB;
+      --border-active:  #C5D8E8;
+      --shadow:         0 4px 12px rgba(74, 144, 184, 0.08);
+      --green-dot:      #22c55e;
+      --surface:        #FFFFFF;
+      --surface-2:      #F3F8FB;
+      --text-muted:     #9CA3AF;
+      --blue:           #4A90B8;
+      --violet:         #6BA8C4;
     }
 
     html, body {
@@ -35,7 +39,7 @@
     }
 
     body {
-      background-color: var(--bg);
+      background-color: var(--bg-primary);
       color: var(--text-primary);
       font-family: 'Inter', sans-serif;
       font-weight: 400;
@@ -53,8 +57,8 @@
       position: fixed;
       inset: 0;
       background:
-        radial-gradient(ellipse 80% 50% at 50% -10%, rgba(59, 130, 246, 0.06) 0%, transparent 60%),
-        radial-gradient(ellipse 60% 40% at 80% 80%, rgba(139, 92, 246, 0.04) 0%, transparent 55%);
+        radial-gradient(ellipse 80% 50% at 50% -10%, rgba(74, 144, 184, 0.06) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 40% at 80% 80%, rgba(184, 221, 212, 0.08) 0%, transparent 55%);
       pointer-events: none;
       z-index: 0;
     }
@@ -80,7 +84,7 @@
       padding: 6px 16px;
       border: 1px solid var(--border-active);
       border-radius: 999px;
-      background: rgba(255, 255, 255, 0.03);
+      background: rgba(74, 144, 184, 0.06);
       backdrop-filter: blur(8px);
     }
 
@@ -110,7 +114,7 @@
     /* ── 2. TITLE ── */
     .hero-title {
       font-family: 'Inter', sans-serif;
-      font-size: clamp(2.4rem, 7vw, 4.5rem);
+      font-size: clamp(2rem, 6vw, 3.6rem);
       font-weight: 300;
       line-height: 1.15;
       text-align: center;
@@ -122,10 +126,8 @@
       font-family: 'Playfair Display', serif;
       font-style: italic;
       font-weight: 500;
-      background: linear-gradient(110deg, var(--blue) 0%, var(--violet) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      color: var(--accent-primary);
+      -webkit-text-fill-color: var(--accent-primary);
     }
 
     /* ── 3. DESCRIPTION ── */
@@ -172,14 +174,14 @@
     .channel-btn.active {
       background: var(--surface-2);
       border-color: var(--border-active);
-      color: var(--text-primary);
+      color: var(--accent-primary);
     }
 
     .channel-btn.disabled {
       background: transparent;
       border-color: var(--border);
       color: var(--text-muted);
-      opacity: 0.45;
+      opacity: 0.5;
     }
 
     .channel-btn svg {
@@ -192,8 +194,8 @@
       max-width: 520px;
       position: relative;
       border-radius: 20px;
-      padding: 1px; /* for gradient border trick */
-      background: linear-gradient(135deg, rgba(59, 130, 246, 0.35) 0%, rgba(139, 92, 246, 0.35) 100%);
+      padding: 1px;
+      background: linear-gradient(135deg, rgba(74, 144, 184, 0.3) 0%, rgba(184, 221, 212, 0.4) 100%);
     }
 
     .suggestion-inner {
@@ -254,7 +256,7 @@
       padding: 13px 28px;
       border: 1px solid var(--border-active);
       border-radius: 999px;
-      background: rgba(255, 255, 255, 0.03);
+      background: rgba(74, 144, 184, 0.05);
       font-family: 'Inter', sans-serif;
       font-size: 0.9rem;
       font-weight: 400;
@@ -265,7 +267,7 @@
 
     .cta-arrow {
       font-size: 1rem;
-      color: var(--violet);
+      color: var(--accent-primary);
       opacity: 0.8;
     }
 
@@ -277,13 +279,13 @@
       width: 62px;
       height: 62px;
       border-radius: 50%;
-      background: var(--whatsapp);
+      background: var(--accent-primary);
       display: flex;
       align-items: center;
       justify-content: center;
       box-shadow:
-        0 4px 20px rgba(37, 211, 102, 0.35),
-        0 2px 8px rgba(0, 0, 0, 0.5);
+        0 4px 20px rgba(74, 144, 184, 0.4),
+        0 2px 8px rgba(0, 0, 0, 0.15);
       text-decoration: none;
       transition: transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1),
                   box-shadow 0.22s ease;
@@ -293,8 +295,8 @@
     .fab:hover {
       transform: scale(1.1);
       box-shadow:
-        0 6px 28px rgba(37, 211, 102, 0.5),
-        0 3px 12px rgba(0, 0, 0, 0.5);
+        0 6px 28px rgba(74, 144, 184, 0.55),
+        0 3px 12px rgba(0, 0, 0, 0.15);
     }
 
     .fab:active {
@@ -356,15 +358,15 @@
 
     <!-- 2. Title -->
     <h1 class="hero-title">
-      Clínica Estética Vita<br>
+      Clínica Estética Lexi<br>
       <span class="accent">en vivo</span>
     </h1>
 
     <!-- 3. Description -->
     <p class="description">
-      Esta es una <strong>web de ejemplo</strong> creada únicamente para mostrarte
-      cómo se ve y se siente tu agente de IA dentro de un sitio.
-      El mismo agente puede atender a tus clientes desde:
+      Demo del asistente inteligente <strong>Lexi</strong>, diseñado para responder mensajes 24/7,
+      filtrar leads, agendar y cancelar citas, enviar recordatorios y atender pacientes
+      como lo haría una recepcionista — pero sin pausas ni horarios.
     </p>
 
     <!-- 4. Channel Buttons -->

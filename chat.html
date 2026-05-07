@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lira — Clínica Estética Vita</title>
+  <title>Lexi — Clínica Estética Lexi</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@1,400&display=swap" rel="stylesheet" />
@@ -16,27 +16,28 @@
     }
 
     :root {
-      /* Hereda del sistema de colores de index.html */
-      --bg:           #0a0a0a;
-      --surface:      #111111;
-      --border:       rgba(255, 255, 255, 0.07);
-      --text-primary: #f0f0f0;
-      --text-secondary: #888;
-      --text-muted:   #555;
-      --green-dot:    #22c55e;
-      --whatsapp:     #25D366;
-      --whatsapp-dark:#1EB855;
-      --whatsapp-deep:#128C7E;
+      --bg-primary:     #FAFBFC;
+      --bg-secondary:   #FFFFFF;
+      --accent-primary: #4A90B8;
+      --accent-light:   #B8DDD4;
+      --accent-hover:   #3A7A9E;
+      --text-primary:   #1F2937;
+      --text-secondary: #6B7280;
+      --user-bubble:    #4A90B8;
+      --bot-bubble:     #F0F7F5;
+      --border:         #E5E7EB;
+      --shadow:         0 4px 12px rgba(74, 144, 184, 0.08);
+      --green-dot:      #22c55e;
 
       /* Chat-specific */
-      --chat-bg:      #ECE8E1;
-      --bubble-bot:   #FFFFFF;
-      --bubble-user:  #DCF8C6;
-      --bubble-text:  #1a1a1a;
-      --bubble-meta:  #888;
-      --input-bg:     #F0F2F5;
-      --input-border: #D1D7DB;
-      --header-h:     72px;
+      --chat-bg:      var(--bg-primary);
+      --bubble-bot:   var(--bot-bubble);
+      --bubble-user:  var(--user-bubble);
+      --bubble-text:  var(--text-primary);
+      --bubble-meta:  var(--text-secondary);
+      --input-bg:     var(--bg-secondary);
+      --input-border: var(--border);
+      --header-h:     80px;
       --input-area-h: 72px;
     }
 
@@ -46,16 +47,11 @@
     }
 
     body {
-      background-color: var(--bg);
+      background-color: var(--bg-primary);
       font-family: 'Inter', sans-serif;
       display: flex;
       align-items: center;
       justify-content: center;
-
-      /* Mismo gradiente sutil que index.html */
-      background-image:
-        radial-gradient(ellipse 80% 50% at 50% -10%, rgba(59, 130, 246, 0.06) 0%, transparent 60%),
-        radial-gradient(ellipse 60% 40% at 80% 80%, rgba(139, 92, 246, 0.04) 0%, transparent 55%);
     }
 
     /* ── WRAPPER DE ESCRITORIO ── */
@@ -69,9 +65,9 @@
 
       /* En desktop: caja flotante con sombra */
       box-shadow:
-        0 0 0 1px rgba(255,255,255,0.06),
-        0 24px 80px rgba(0,0,0,0.7),
-        0 8px 24px rgba(0,0,0,0.5);
+        0 0 0 1px var(--border),
+        0 24px 80px rgba(74,144,184,0.12),
+        0 8px 24px rgba(0,0,0,0.08);
     }
 
     @media (min-width: 520px) {
@@ -90,13 +86,13 @@
     ══════════════════════════════════════ */
     .chat-header {
       flex-shrink: 0;
-      background: var(--whatsapp-deep);
+      background: var(--accent-primary);
       height: var(--header-h);
       padding: 0 16px;
       display: flex;
       align-items: center;
       gap: 12px;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.35);
+      box-shadow: var(--shadow);
       position: relative;
       z-index: 10;
     }
@@ -106,13 +102,13 @@
       width: 44px;
       height: 44px;
       border-radius: 50%;
-      background: linear-gradient(135deg, var(--whatsapp) 0%, #1EB855 100%);
+      background: linear-gradient(135deg, var(--accent-light) 0%, var(--bg-secondary) 100%);
       display: flex;
       align-items: center;
       justify-content: center;
       box-shadow:
-        0 0 0 2px rgba(255,255,255,0.15),
-        0 2px 8px rgba(0,0,0,0.3);
+        0 0 0 2px rgba(255,255,255,0.25),
+        0 2px 8px rgba(0,0,0,0.12);
     }
 
     .header-info {
@@ -120,7 +116,7 @@
       min-width: 0;
       display: flex;
       flex-direction: column;
-      gap: 2px;
+      gap: 1px;
     }
 
     .header-name {
@@ -136,10 +132,25 @@
     .header-clinic {
       font-size: 0.72rem;
       font-weight: 400;
-      color: rgba(255,255,255,0.65);
+      color: rgba(255,255,255,0.75);
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+    }
+
+    .header-desc {
+      font-size: 0.65rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.55);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 100%;
+      display: none;
+    }
+
+    @media (min-width: 400px) {
+      .header-desc { display: block; }
     }
 
     .header-status {
@@ -196,8 +207,6 @@
       flex: 1;
       overflow-y: auto;
       background-color: var(--chat-bg);
-      background-image:
-        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Ccircle cx='30' cy='30' r='1' fill='%23C5B9AF' fill-opacity='0.25'/%3E%3C/svg%3E");
       padding: 20px 16px;
       display: flex;
       flex-direction: column;
@@ -275,7 +284,12 @@
       align-self: flex-end;
       background: var(--bubble-user);
       border-radius: 16px 4px 16px 16px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      box-shadow: 0 1px 3px rgba(74,144,184,0.2);
+      color: #ffffff;
+    }
+
+    .message-user .msg-time {
+      color: rgba(255,255,255,0.7);
     }
 
     .message-user::before {
@@ -382,7 +396,7 @@
     }
 
     .input-wrapper:focus-within {
-      border-color: var(--whatsapp);
+      border-color: var(--accent-primary);
     }
 
     #messageInput {
@@ -414,13 +428,13 @@
       width: 48px;
       height: 48px;
       border-radius: 50%;
-      background: var(--whatsapp);
+      background: var(--accent-primary);
       border: none;
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 2px 10px rgba(37,211,102,0.35);
+      box-shadow: 0 2px 10px rgba(74,144,184,0.35);
       transition:
         background 0.18s ease,
         transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1),
@@ -428,9 +442,9 @@
     }
 
     #sendButton:hover {
-      background: var(--whatsapp-dark);
+      background: var(--accent-hover);
       transform: scale(1.08);
-      box-shadow: 0 4px 16px rgba(37,211,102,0.5);
+      box-shadow: 0 4px 16px rgba(74,144,184,0.5);
     }
 
     #sendButton:active {
@@ -457,8 +471,9 @@
 
       <!-- Info -->
       <div class="header-info">
-        <span class="header-name">Lira</span>
-        <span class="header-clinic">Clínica Estética Vita</span>
+        <span class="header-name">Lexi</span>
+        <span class="header-clinic">Clínica Estética Lexi</span>
+        <span class="header-desc">Asistente inteligente · Responde 24/7</span>
         <div class="header-status">
           <span class="status-dot"></span>
           <span class="status-text">En línea</span>
@@ -477,13 +492,13 @@
 
 
     <!-- ══ SECCIÓN 2: MENSAJES ══ -->
-    <main class="messages-area" id="messages" aria-live="polite" aria-label="Conversación con Lira">
+    <main class="messages-area" id="messages" aria-live="polite" aria-label="Conversación con Lexi">
 
       <div class="date-label">Hoy</div>
 
       <!-- Mensaje inicial estático del agente -->
       <div class="message-bot">
-        Hola, soy Lira, asistente virtual de Clínica Estética Vita. ¿En qué le puedo ayudar?
+        Hola, soy Lexi, asistente virtual de Clínica Estética Lexi. ¿En qué le puedo ayudar?
         <span class="msg-time">
           <!-- JS puede actualizar esto -->
         </span>

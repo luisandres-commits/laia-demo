@@ -1,5 +1,5 @@
 // ===========================================
-// chat.js - Lógica del chat de Lira
+// chat.js - Lógica del chat de Lexi
 // LAIA Solutions - Demo para clínicas estéticas
 // ===========================================
 // ===========================================
