@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Clínica Estética Lexi — Demo LAIA Solutions</title>
+  <title>Clínica Dental SmileAI — Demo LAIA Solutions</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@1,400;1,500;1,600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Serif+Display:ital@1&display=swap" rel="stylesheet" />
 
   <style>
     *, *::before, *::after {
@@ -16,75 +16,65 @@
     }
 
     :root {
-      --bg-primary:     #FAFBFC;
-      --bg-secondary:   #FFFFFF;
-      --accent-primary: #4A90B8;
-      --accent-light:   #B8DDD4;
-      --accent-hover:   #3A7A9E;
-      --text-primary:   #1F2937;
-      --text-secondary: #6B7280;
-      --border:         #E5E7EB;
-      --border-active:  #C5D8E8;
-      --shadow:         0 4px 12px rgba(74, 144, 184, 0.08);
+      --bg:             #f0f4f8;
+      --surface:        #ffffff;
+      --accent:         #1a6fa3;
+      --accent-hover:   #155d8a;
+      --accent-light:   #a8d4e8;
+      --text-primary:   #1a3a52;
+      --text-secondary: #4a6274;
+      --text-muted:     #7a9ab0;
+      --border:         #d8e6f0;
+      --border-active:  #a8ccdf;
       --green-dot:      #22c55e;
-      --surface:        #FFFFFF;
-      --surface-2:      #F3F8FB;
-      --text-muted:     #9CA3AF;
-      --blue:           #4A90B8;
-      --violet:         #6BA8C4;
+      --shadow-card:    0 4px 24px rgba(26, 58, 82, 0.10);
     }
 
     html, body {
-      height: 100%;
+      min-height: 100%;
     }
 
     body {
-      background-color: var(--bg-primary);
+      background-color: var(--bg);
       color: var(--text-primary);
-      font-family: 'Inter', sans-serif;
+      font-family: 'DM Sans', sans-serif;
       font-weight: 400;
       line-height: 1.6;
-      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
       display: flex;
       flex-direction: column;
       align-items: center;
-      -webkit-font-smoothing: antialiased;
     }
 
-    /* Subtle background texture */
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background:
-        radial-gradient(ellipse 80% 50% at 50% -10%, rgba(74, 144, 184, 0.06) 0%, transparent 60%),
-        radial-gradient(ellipse 60% 40% at 80% 80%, rgba(184, 221, 212, 0.08) 0%, transparent 55%);
-      pointer-events: none;
-      z-index: 0;
+    /* ══════════════════════════════════════
+       1. HERO SUPERIOR OSCURO
+    ══════════════════════════════════════ */
+    .page-hero {
+      width: 100%;
+      background: linear-gradient(135deg, #1a3a52 0%, #0e2233 100%);
+      padding: 52px 24px 48px;
+      display: flex;
+      justify-content: center;
     }
 
-    .page-wrapper {
-      position: relative;
-      z-index: 1;
+    .hero-inner {
       width: 100%;
       max-width: 680px;
-      padding: 60px 24px 120px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 40px;
-      flex: 1;
+      gap: 28px;
     }
 
-    /* ── 1. BADGE ── */
+    /* ── Badge ── */
     .badge {
       display: inline-flex;
       align-items: center;
       gap: 8px;
       padding: 6px 16px;
-      border: 1px solid var(--border-active);
       border-radius: 999px;
-      background: rgba(74, 144, 184, 0.06);
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.22);
       backdrop-filter: blur(8px);
     }
 
@@ -108,45 +98,41 @@
       font-weight: 600;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: var(--text-secondary);
+      color: rgba(255, 255, 255, 0.85);
     }
 
-    /* ── 2. TITLE ── */
+    /* ── Título ── */
     .hero-title {
-      font-family: 'Inter', sans-serif;
-      font-size: clamp(2rem, 6vw, 3.6rem);
+      font-family: 'DM Sans', sans-serif;
+      font-size: clamp(2rem, 6vw, 3.4rem);
       font-weight: 300;
       line-height: 1.15;
       text-align: center;
       letter-spacing: -0.02em;
-      color: var(--text-primary);
+      color: rgba(255, 255, 255, 0.92);
     }
 
     .hero-title .accent {
-      font-family: 'Playfair Display', serif;
+      font-family: 'DM Serif Display', serif;
       font-style: italic;
-      font-weight: 500;
-      color: var(--accent-primary);
-      -webkit-text-fill-color: var(--accent-primary);
+      font-weight: 400;
+      color: var(--accent-light);
     }
 
-    /* ── 3. DESCRIPTION ── */
-    .description {
-      font-size: clamp(0.95rem, 2.5vw, 1.05rem);
-      font-weight: 300;
-      color: var(--text-secondary);
-      text-align: center;
-      max-width: 520px;
-      line-height: 1.75;
-      margin-top: -8px;
+    /* ══════════════════════════════════════
+       2. CUERPO CLARO
+    ══════════════════════════════════════ */
+    .page-content {
+      width: 100%;
+      max-width: 680px;
+      padding: 40px 24px 120px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 28px;
     }
 
-    .description strong {
-      font-weight: 500;
-      color: var(--text-primary);
-    }
-
-    /* ── 4. CHANNEL BUTTONS ── */
+    /* ── Botones de canal ── */
     .channels {
       display: flex;
       flex-wrap: wrap;
@@ -159,22 +145,21 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 10px 20px;
+      padding: 9px 18px;
       border-radius: 999px;
-      font-family: 'Inter', sans-serif;
-      font-size: 0.85rem;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.84rem;
       font-weight: 500;
       letter-spacing: 0.01em;
       cursor: default;
-      transition: none;
       border: 1px solid transparent;
       text-decoration: none;
     }
 
     .channel-btn.active {
-      background: var(--surface-2);
+      background: rgba(26, 111, 163, 0.08);
       border-color: var(--border-active);
-      color: var(--accent-primary);
+      color: var(--accent);
     }
 
     .channel-btn.disabled {
@@ -188,27 +173,39 @@
       flex-shrink: 0;
     }
 
-    /* ── 5. SUGGESTION BOX ── */
-    .suggestion-box {
+    /* ── Tarjeta blanca ── */
+    .content-card {
       width: 100%;
       max-width: 520px;
-      position: relative;
+      background: var(--surface);
       border-radius: 20px;
-      padding: 1px;
-      background: linear-gradient(135deg, rgba(74, 144, 184, 0.3) 0%, rgba(184, 221, 212, 0.4) 100%);
+      box-shadow: var(--shadow-card);
+      overflow: hidden;
     }
 
-    .suggestion-inner {
-      background: var(--surface);
-      border-radius: 19px;
-      padding: 28px 32px;
+    .description {
+      padding: 28px 32px 20px;
+      font-size: clamp(0.92rem, 2.4vw, 1rem);
+      font-weight: 400;
+      color: var(--text-secondary);
+      line-height: 1.75;
+    }
+
+    .description strong {
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    /* ── Sugerencias ── */
+    .suggestion-box {
+      padding: 0 32px 28px;
     }
 
     .suggestion-header {
       display: flex;
       align-items: center;
       gap: 8px;
-      margin-bottom: 20px;
+      margin-bottom: 16px;
     }
 
     .suggestion-label {
@@ -222,7 +219,6 @@
     .suggestion-list {
       display: flex;
       flex-direction: column;
-      gap: 0;
       list-style: none;
     }
 
@@ -230,12 +226,11 @@
       display: flex;
       align-items: center;
       gap: 12px;
-      padding: 13px 0;
+      padding: 12px 0;
       border-bottom: 1px solid var(--border);
-      font-size: 0.92rem;
+      font-size: 0.9rem;
       font-weight: 400;
       color: var(--text-secondary);
-      transition: color 0.2s;
     }
 
     .suggestion-item:last-child {
@@ -244,34 +239,49 @@
 
     .suggestion-arrow {
       flex-shrink: 0;
-      color: var(--blue);
-      opacity: 0.7;
+      color: var(--accent);
+      opacity: 0.65;
     }
 
-    /* ── 6. CTA BUTTON ── */
+    /* ── CTA ── */
     .cta-btn {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 13px 28px;
+      padding: 12px 26px;
       border: 1px solid var(--border-active);
       border-radius: 999px;
-      background: rgba(74, 144, 184, 0.05);
-      font-family: 'Inter', sans-serif;
-      font-size: 0.9rem;
+      background: rgba(26, 111, 163, 0.04);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.88rem;
       font-weight: 400;
       color: var(--text-secondary);
-      letter-spacing: 0.01em;
       cursor: default;
     }
 
     .cta-arrow {
-      font-size: 1rem;
-      color: var(--accent-primary);
+      color: var(--accent);
       opacity: 0.8;
     }
 
-    /* ── 7. FLOATING CHAT BUTTON ── */
+    /* ══════════════════════════════════════
+       3. FOOTER
+    ══════════════════════════════════════ */
+    footer {
+      width: 100%;
+      text-align: center;
+      padding: 0 24px 28px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.73rem;
+      font-weight: 400;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      opacity: 0.6;
+    }
+
+    /* ══════════════════════════════════════
+       4. FAB
+    ══════════════════════════════════════ */
     .fab {
       position: fixed;
       bottom: 28px;
@@ -279,23 +289,24 @@
       width: 62px;
       height: 62px;
       border-radius: 50%;
-      background: var(--accent-primary);
+      background: var(--accent);
       display: flex;
       align-items: center;
       justify-content: center;
       box-shadow:
-        0 4px 20px rgba(74, 144, 184, 0.4),
+        0 4px 20px rgba(26, 111, 163, 0.45),
         0 2px 8px rgba(0, 0, 0, 0.15);
       text-decoration: none;
-      transition: transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1),
-                  box-shadow 0.22s ease;
+      transition:
+        transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1),
+        box-shadow 0.22s ease;
       z-index: 1000;
     }
 
     .fab:hover {
       transform: scale(1.1);
       box-shadow:
-        0 6px 28px rgba(74, 144, 184, 0.55),
+        0 6px 28px rgba(26, 111, 163, 0.60),
         0 3px 12px rgba(0, 0, 0, 0.15);
     }
 
@@ -303,29 +314,25 @@
       transform: scale(0.97);
     }
 
-    /* ── 8. FOOTER ── */
-    footer {
-      position: relative;
-      z-index: 1;
-      width: 100%;
-      text-align: center;
-      padding: 0 24px 32px;
-      font-size: 0.75rem;
-      font-weight: 400;
-      letter-spacing: 0.05em;
-      color: var(--text-muted);
-      opacity: 0.55;
-    }
-
-    /* ── RESPONSIVE ── */
+    /* ══════════════════════════════════════
+       5. RESPONSIVE
+    ══════════════════════════════════════ */
     @media (max-width: 480px) {
-      .page-wrapper {
-        padding: 48px 20px 110px;
-        gap: 32px;
+      .page-hero {
+        padding: 44px 20px 40px;
       }
 
-      .suggestion-inner {
-        padding: 22px 22px;
+      .page-content {
+        padding: 32px 20px 110px;
+        gap: 24px;
+      }
+
+      .content-card .description {
+        padding: 22px 22px 16px;
+      }
+
+      .suggestion-box {
+        padding: 0 22px 22px;
       }
 
       .channels {
@@ -333,7 +340,7 @@
       }
 
       .channel-btn {
-        padding: 9px 16px;
+        padding: 8px 14px;
         font-size: 0.8rem;
       }
 
@@ -348,99 +355,96 @@
 </head>
 <body>
 
-  <div class="page-wrapper">
+  <!-- 1. HERO SUPERIOR OSCURO -->
+  <div class="page-hero">
+    <div class="hero-inner">
 
-    <!-- 1. Badge -->
-    <div class="badge">
-      <span class="badge-dot"></span>
-      <span class="badge-text">Página de Demostración</span>
+      <div class="badge">
+        <span class="badge-dot"></span>
+        <span class="badge-text">Demo — LAIA Solutions</span>
+      </div>
+
+      <h1 class="hero-title">
+        Clínica Dental <span class="accent">SmileAI</span>
+      </h1>
+
     </div>
+  </div>
 
-    <!-- 2. Title -->
-    <h1 class="hero-title">
-      Clínica Estética Lexi<br>
-      <span class="accent">en vivo</span>
-    </h1>
+  <!-- 2. CUERPO CLARO -->
+  <div class="page-content">
 
-    <!-- 3. Description -->
-    <p class="description">
-      Demo del asistente inteligente <strong>Lexi</strong>, diseñado para responder mensajes 24/7,
-      filtrar leads, agendar y cancelar citas, enviar recordatorios y atender pacientes
-      como lo haría una recepcionista — pero sin pausas ni horarios.
-    </p>
-
-    <!-- 4. Channel Buttons -->
+    <!-- Canales -->
     <div class="channels">
-
-      <!-- Web (active) -->
       <span class="channel-btn active">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <circle cx="12" cy="12" r="10"/>
           <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
         </svg>
         Web
       </span>
-
-      <!-- WhatsApp (disabled) -->
       <span class="channel-btn disabled">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
           <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
           <path d="M12 0C5.373 0 0 5.373 0 12c0 2.136.565 4.136 1.548 5.867L0 24l6.296-1.51A11.947 11.947 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 0 1-5.006-1.372l-.36-.214-3.727.894.936-3.628-.234-.374A9.783 9.783 0 0 1 2.182 12C2.182 6.578 6.578 2.182 12 2.182S21.818 6.578 21.818 12 17.422 21.818 12 21.818z"/>
         </svg>
         WhatsApp
       </span>
-
-      <!-- Instagram (disabled) -->
       <span class="channel-btn disabled">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
           <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
           <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
         </svg>
         Instagram
       </span>
-
-      <!-- Facebook (disabled) -->
       <span class="channel-btn disabled">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
           <path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.513c-1.491 0-1.956.93-1.956 1.884v2.25h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/>
         </svg>
         Facebook
       </span>
-
     </div>
 
-    <!-- 5. Suggestion Box -->
-    <div class="suggestion-box">
-      <div class="suggestion-inner">
+    <!-- Tarjeta: descripción + sugerencias -->
+    <div class="content-card">
+
+      <p class="description">
+        Demo del asistente inteligente <strong>SmileAI</strong>, diseñado para responder preguntas sobre
+        tratamientos dentales, dar información de precios, agendar citas y atender pacientes —
+        las 24 horas, sin interrupciones.
+      </p>
+
+      <div class="suggestion-box">
         <div class="suggestion-header">
-          <span style="font-size: 1rem;">💡</span>
+          <span style="font-size: 0.95rem;">💡</span>
           <span class="suggestion-label">Prueba preguntar</span>
         </div>
         <ul class="suggestion-list">
           <li class="suggestion-item">
-            <svg class="suggestion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <svg class="suggestion-arrow" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
               <polyline points="9 18 15 12 9 6"/>
             </svg>
-            ¿Qué tratamientos ofrecen?
+            ¿Cuánto cuesta una limpieza dental?
           </li>
           <li class="suggestion-item">
-            <svg class="suggestion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <svg class="suggestion-arrow" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
               <polyline points="9 18 15 12 9 6"/>
             </svg>
-            ¿Cuánto cuesta el hidrafacial?
+            ¿Hacen blanqueamiento láser?
           </li>
           <li class="suggestion-item">
-            <svg class="suggestion-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <svg class="suggestion-arrow" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
               <polyline points="9 18 15 12 9 6"/>
             </svg>
             Quiero agendar una cita
           </li>
         </ul>
       </div>
+
     </div>
 
-    <!-- 6. CTA Button -->
+    <!-- CTA -->
     <span class="cta-btn">
       Haz clic en la burbuja
       <span class="cta-arrow">→</span>
@@ -448,12 +452,12 @@
 
   </div>
 
-  <!-- 8. Footer -->
+  <!-- 3. FOOTER -->
   <footer>Powered by LAIA Solutions</footer>
 
-  <!-- 7. Floating Chat Button -->
-  <a href="chat.html" class="fab" aria-label="Abrir chat">
-    <svg width="28" height="28" viewBox="0 0 24 24" fill="white">
+  <!-- 4. FAB -->
+  <a href="chat.html" class="fab" aria-label="Abrir chat con SmileAI">
+    <svg width="27" height="27" viewBox="0 0 24 24" fill="white">
       <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
       <path d="M12 0C5.373 0 0 5.373 0 12c0 2.136.565 4.136 1.548 5.867L0 24l6.296-1.51A11.947 11.947 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 0 1-5.006-1.372l-.36-.214-3.727.894.936-3.628-.234-.374A9.783 9.783 0 0 1 2.182 12C2.182 6.578 6.578 2.182 12 2.182S21.818 6.578 21.818 12 17.422 21.818 12 21.818z"/>
     </svg>

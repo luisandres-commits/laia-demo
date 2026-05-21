@@ -124,7 +124,7 @@ function showTypingIndicator() {
     const typingDiv = document.createElement('div');
     typingDiv.className = 'typing-indicator message-bot';
     typingDiv.id = 'typingIndicator';
-    typingDiv.innerHTML = '<span></span><span></span><span></span>';
+    typingDiv.innerHTML = '<span class="typing-dot"></span><span class="typing-dot"></span><span class="typing-dot"></span>';
     
     messagesContainer.appendChild(typingDiv);
     scrollToBottom();

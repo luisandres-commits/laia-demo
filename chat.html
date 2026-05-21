@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lexi — Clínica Estética Lexi</title>
+  <title>SmileAI — Clínica Dental SmileAI</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@1,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Serif+Display:ital@1&display=swap" rel="stylesheet" />
 
   <style>
     *, *::before, *::after {
@@ -16,29 +16,19 @@
     }
 
     :root {
-      --bg-primary:     #FAFBFC;
-      --bg-secondary:   #FFFFFF;
-      --accent-primary: #4A90B8;
-      --accent-light:   #B8DDD4;
-      --accent-hover:   #3A7A9E;
-      --text-primary:   #1F2937;
-      --text-secondary: #6B7280;
-      --user-bubble:    #4A90B8;
-      --bot-bubble:     #F0F7F5;
-      --border:         #E5E7EB;
-      --shadow:         0 4px 12px rgba(74, 144, 184, 0.08);
+      --bg:             #f0f4f8;
+      --surface:        #ffffff;
+      --accent:         #1a6fa3;
+      --accent-hover:   #155d8a;
+      --text-primary:   #1a3a52;
+      --text-secondary: #4a6274;
+      --text-muted:     #7a9ab0;
+      --border:         #d8e6f0;
       --green-dot:      #22c55e;
 
-      /* Chat-specific */
-      --chat-bg:      var(--bg-primary);
-      --bubble-bot:   var(--bot-bubble);
-      --bubble-user:  var(--user-bubble);
-      --bubble-text:  var(--text-primary);
-      --bubble-meta:  var(--text-secondary);
-      --input-bg:     var(--bg-secondary);
-      --input-border: var(--border);
-      --header-h:     80px;
-      --input-area-h: 72px;
+      --bubble-bot:     #ffffff;
+      --bubble-user:    #1a6fa3;
+      --header-h:       80px;
     }
 
     html, body {
@@ -47,14 +37,16 @@
     }
 
     body {
-      background-color: var(--bg-primary);
-      font-family: 'Inter', sans-serif;
+      background-color: var(--bg);
+      font-family: 'DM Sans', sans-serif;
       display: flex;
       align-items: center;
       justify-content: center;
     }
 
-    /* ── WRAPPER DE ESCRITORIO ── */
+    /* ══════════════════════════════════════
+       WRAPPER PRINCIPAL
+    ══════════════════════════════════════ */
     .chat-shell {
       width: 100%;
       max-width: 500px;
@@ -62,12 +54,10 @@
       display: flex;
       flex-direction: column;
       overflow: hidden;
-
-      /* En desktop: caja flotante con sombra */
       box-shadow:
-        0 0 0 1px var(--border),
-        0 24px 80px rgba(74,144,184,0.12),
-        0 8px 24px rgba(0,0,0,0.08);
+        0 0 0 1px rgba(26, 58, 82, 0.1),
+        0 24px 80px rgba(26, 111, 163, 0.14),
+        0 8px 24px rgba(0, 0, 0, 0.08);
     }
 
     @media (min-width: 520px) {
@@ -86,13 +76,12 @@
     ══════════════════════════════════════ */
     .chat-header {
       flex-shrink: 0;
-      background: var(--accent-primary);
+      background: linear-gradient(135deg, #1a3a52 0%, #0e2233 100%);
       height: var(--header-h);
       padding: 0 16px;
       display: flex;
       align-items: center;
       gap: 12px;
-      box-shadow: var(--shadow);
       position: relative;
       z-index: 10;
     }
@@ -102,13 +91,11 @@
       width: 44px;
       height: 44px;
       border-radius: 50%;
-      background: linear-gradient(135deg, var(--accent-light) 0%, var(--bg-secondary) 100%);
+      background: rgba(168, 212, 232, 0.18);
+      border: 1.5px solid rgba(168, 212, 232, 0.30);
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow:
-        0 0 0 2px rgba(255,255,255,0.25),
-        0 2px 8px rgba(0,0,0,0.12);
     }
 
     .header-info {
@@ -120,44 +107,32 @@
     }
 
     .header-name {
-      font-size: 1rem;
-      font-weight: 600;
+      font-family: 'DM Serif Display', serif;
+      font-style: italic;
+      font-size: 1.08rem;
+      font-weight: 400;
       color: #ffffff;
-      letter-spacing: -0.01em;
+      letter-spacing: 0;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
     }
 
     .header-clinic {
+      font-family: 'DM Sans', sans-serif;
       font-size: 0.72rem;
       font-weight: 400;
-      color: rgba(255,255,255,0.75);
+      color: rgba(255, 255, 255, 0.70);
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
-    }
-
-    .header-desc {
-      font-size: 0.65rem;
-      font-weight: 300;
-      color: rgba(255,255,255,0.55);
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      max-width: 100%;
-      display: none;
-    }
-
-    @media (min-width: 400px) {
-      .header-desc { display: block; }
     }
 
     .header-status {
       display: flex;
       align-items: center;
       gap: 5px;
-      margin-top: 1px;
+      margin-top: 2px;
     }
 
     .status-dot {
@@ -165,19 +140,19 @@
       height: 6px;
       border-radius: 50%;
       background: var(--green-dot);
-      box-shadow: 0 0 6px rgba(34,197,94,0.8);
+      box-shadow: 0 0 6px rgba(34, 197, 94, 0.8);
       animation: pulse-online 2.4s ease-in-out infinite;
     }
 
     @keyframes pulse-online {
-      0%, 100% { box-shadow: 0 0 4px rgba(34,197,94,0.7); }
-      50%       { box-shadow: 0 0 10px rgba(34,197,94,1); }
+      0%, 100% { box-shadow: 0 0 4px rgba(34, 197, 94, 0.7); }
+      50%       { box-shadow: 0 0 10px rgba(34, 197, 94, 1); }
     }
 
     .status-text {
-      font-size: 0.7rem;
+      font-size: 0.68rem;
       font-weight: 400;
-      color: rgba(255,255,255,0.6);
+      color: rgba(255, 255, 255, 0.55);
     }
 
     .header-close {
@@ -189,14 +164,12 @@
       align-items: center;
       justify-content: center;
       text-decoration: none;
-      color: rgba(255,255,255,0.8);
-      transition:
-        background 0.18s ease,
-        color 0.18s ease;
+      color: rgba(255, 255, 255, 0.75);
+      transition: background 0.18s ease, color 0.18s ease;
     }
 
     .header-close:hover {
-      background: rgba(255,255,255,0.12);
+      background: rgba(255, 255, 255, 0.12);
       color: #ffffff;
     }
 
@@ -206,7 +179,7 @@
     .messages-area {
       flex: 1;
       overflow-y: auto;
-      background-color: var(--chat-bg);
+      background-color: var(--bg);
       padding: 20px 16px;
       display: flex;
       flex-direction: column;
@@ -214,23 +187,37 @@
       scroll-behavior: smooth;
     }
 
-    /* Scrollbar sutil */
     .messages-area::-webkit-scrollbar       { width: 4px; }
     .messages-area::-webkit-scrollbar-track { background: transparent; }
-    .messages-area::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.15); border-radius: 4px; }
+    .messages-area::-webkit-scrollbar-thumb { background: rgba(26, 58, 82, 0.15); border-radius: 4px; }
+
+    /* ── Aviso de demo ── */
+    .disclaimer-notice {
+      align-self: stretch;
+      background: rgba(26, 111, 163, 0.06);
+      border: 1px solid rgba(26, 111, 163, 0.18);
+      border-radius: 12px;
+      padding: 10px 14px;
+      font-size: 0.77rem;
+      font-weight: 400;
+      color: var(--text-secondary);
+      line-height: 1.55;
+      text-align: center;
+      margin-bottom: 6px;
+    }
 
     /* ── Etiqueta de fecha ── */
     .date-label {
       align-self: center;
-      font-size: 0.7rem;
+      font-size: 0.68rem;
       font-weight: 500;
-      color: #6b7280;
-      background: rgba(255,255,255,0.72);
+      color: var(--text-muted);
+      background: rgba(255, 255, 255, 0.75);
       backdrop-filter: blur(4px);
       padding: 4px 12px;
       border-radius: 999px;
-      margin: 6px 0 10px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      margin: 4px 0 8px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
       letter-spacing: 0.02em;
     }
 
@@ -239,42 +226,34 @@
     .message-user {
       max-width: 75%;
       padding: 10px 14px 8px;
-      font-size: 0.92rem;
+      font-size: 0.91rem;
       font-weight: 400;
       line-height: 1.55;
-      color: var(--bubble-text);
       position: relative;
       word-break: break-word;
+      white-space: pre-wrap;
       animation: msg-in 0.28s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
     }
 
     @keyframes msg-in {
-      from {
-        opacity: 0;
-        transform: translateY(10px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(10px); }
+      to   { opacity: 1; transform: translateY(0); }
     }
 
     /* ── Burbuja del bot (izquierda) ── */
     .message-bot {
       align-self: flex-start;
       background: var(--bubble-bot);
+      color: var(--text-primary);
       border-radius: 4px 16px 16px 16px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      box-shadow: 0 1px 4px rgba(26, 58, 82, 0.10);
     }
 
-    /* Triángulo superior izquierdo */
     .message-bot::before {
       content: '';
       position: absolute;
       top: 0;
       left: -7px;
-      width: 0;
-      height: 0;
       border-top: 7px solid var(--bubble-bot);
       border-left: 7px solid transparent;
     }
@@ -283,13 +262,9 @@
     .message-user {
       align-self: flex-end;
       background: var(--bubble-user);
-      border-radius: 16px 4px 16px 16px;
-      box-shadow: 0 1px 3px rgba(74,144,184,0.2);
       color: #ffffff;
-    }
-
-    .message-user .msg-time {
-      color: rgba(255,255,255,0.7);
+      border-radius: 16px 4px 16px 16px;
+      box-shadow: 0 1px 4px rgba(26, 111, 163, 0.25);
     }
 
     .message-user::before {
@@ -297,39 +272,39 @@
       position: absolute;
       top: 0;
       right: -7px;
-      width: 0;
-      height: 0;
       border-top: 7px solid var(--bubble-user);
       border-right: 7px solid transparent;
     }
 
-    /* ── Timestamp en burbuja ── */
+    /* ── Timestamp ── */
     .msg-time {
       display: block;
-      font-size: 0.65rem;
-      color: var(--bubble-meta);
+      font-size: 0.64rem;
+      color: var(--text-muted);
       text-align: right;
       margin-top: 4px;
     }
 
     .message-user .msg-time {
+      color: rgba(255, 255, 255, 0.65);
       display: flex;
       align-items: center;
       justify-content: flex-end;
       gap: 4px;
     }
 
-    /* ── Indicador "escribiendo…" ── */
+    /* ── Indicador escribiendo ── */
     .typing-indicator {
       align-self: flex-start;
       background: var(--bubble-bot);
       border-radius: 4px 16px 16px 16px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      box-shadow: 0 1px 4px rgba(26, 58, 82, 0.10);
       padding: 14px 18px;
-      display: none; /* JS lo muestra con display:flex */
+      display: none;
       align-items: center;
       gap: 5px;
       animation: msg-in 0.28s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+      position: relative;
     }
 
     .typing-indicator::before {
@@ -337,8 +312,6 @@
       position: absolute;
       top: 0;
       left: -7px;
-      width: 0;
-      height: 0;
       border-top: 7px solid var(--bubble-bot);
       border-left: 7px solid transparent;
     }
@@ -351,7 +324,7 @@
       width: 8px;
       height: 8px;
       border-radius: 50%;
-      background: #aaa;
+      background: var(--text-muted);
       animation: typing-pulse 1.4s ease-in-out infinite both;
     }
 
@@ -360,14 +333,8 @@
     .typing-dot:nth-child(3) { animation-delay: 0.4s; }
 
     @keyframes typing-pulse {
-      0%, 60%, 100% {
-        transform: translateY(0);
-        opacity: 0.4;
-      }
-      30% {
-        transform: translateY(-5px);
-        opacity: 1;
-      }
+      0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
+      30%            { transform: translateY(-5px); opacity: 1; }
     }
 
     /* ══════════════════════════════════════
@@ -375,20 +342,20 @@
     ══════════════════════════════════════ */
     .chat-input-area {
       flex-shrink: 0;
-      background: var(--input-bg);
+      background: var(--surface);
       padding: 10px 12px;
       display: flex;
       align-items: flex-end;
       gap: 10px;
-      border-top: 1px solid rgba(0,0,0,0.06);
+      border-top: 1px solid rgba(26, 58, 82, 0.07);
     }
 
     .input-wrapper {
       flex: 1;
       display: flex;
       align-items: flex-end;
-      background: #ffffff;
-      border: 1px solid var(--input-border);
+      background: var(--bg);
+      border: 1px solid var(--border);
       border-radius: 24px;
       padding: 10px 16px;
       min-height: 48px;
@@ -396,7 +363,7 @@
     }
 
     .input-wrapper:focus-within {
-      border-color: var(--accent-primary);
+      border-color: var(--accent);
     }
 
     #messageInput {
@@ -404,11 +371,11 @@
       border: none;
       outline: none;
       resize: none;
-      font-family: 'Inter', sans-serif;
-      font-size: 0.93rem;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.92rem;
       font-weight: 400;
       line-height: 1.5;
-      color: var(--bubble-text);
+      color: var(--text-primary);
       background: transparent;
       min-height: 24px;
       max-height: 72px;
@@ -417,24 +384,24 @@
     }
 
     #messageInput::placeholder {
-      color: #aab0b9;
+      color: var(--text-muted);
     }
 
     #messageInput::-webkit-scrollbar       { width: 3px; }
-    #messageInput::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.15); border-radius: 3px; }
+    #messageInput::-webkit-scrollbar-thumb { background: rgba(0, 0, 0, 0.15); border-radius: 3px; }
 
     #sendButton {
       flex-shrink: 0;
       width: 48px;
       height: 48px;
       border-radius: 50%;
-      background: var(--accent-primary);
+      background: var(--accent);
       border: none;
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 2px 10px rgba(74,144,184,0.35);
+      box-shadow: 0 2px 10px rgba(26, 111, 163, 0.35);
       transition:
         background 0.18s ease,
         transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1),
@@ -444,13 +411,12 @@
     #sendButton:hover {
       background: var(--accent-hover);
       transform: scale(1.08);
-      box-shadow: 0 4px 16px rgba(74,144,184,0.5);
+      box-shadow: 0 4px 16px rgba(26, 111, 163, 0.5);
     }
 
     #sendButton:active {
       transform: scale(0.95);
     }
-
   </style>
 </head>
 <body>
@@ -460,27 +426,21 @@
     <!-- ══ SECCIÓN 1: HEADER ══ -->
     <header class="chat-header">
 
-      <!-- Avatar -->
       <div class="header-avatar">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <!-- Ícono de persona estilizada -->
-          <circle cx="12" cy="8" r="4" fill="rgba(255,255,255,0.95)"/>
-          <path d="M4 20c0-4 3.582-7 8-7s8 3 8 7" stroke="rgba(255,255,255,0.95)" stroke-width="2" stroke-linecap="round"/>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M12 2C9.5 2 7.5 4 7.5 6.5C7.5 8.2 8.4 9.7 9.7 10.5C7.2 11.4 5 13.8 5 17H7C7 14.2 9.2 12 12 12C14.8 12 17 14.2 17 17H19C19 13.8 16.8 11.4 14.3 10.5C15.6 9.7 16.5 8.2 16.5 6.5C16.5 4 14.5 2 12 2ZM12 4C13.4 4 14.5 5.1 14.5 6.5C14.5 7.9 13.4 9 12 9C10.6 9 9.5 7.9 9.5 6.5C9.5 5.1 10.6 4 12 4Z" fill="rgba(168,212,232,0.9)"/>
         </svg>
       </div>
 
-      <!-- Info -->
       <div class="header-info">
-        <span class="header-name">Lexi</span>
-        <span class="header-clinic">Clínica Estética Lexi</span>
-        <span class="header-desc">Asistente inteligente · Responde 24/7</span>
+        <span class="header-name">SmileAI</span>
+        <span class="header-clinic">Clínica Dental SmileAI</span>
         <div class="header-status">
           <span class="status-dot"></span>
           <span class="status-text">En línea</span>
         </div>
       </div>
 
-      <!-- Botón cerrar → vuelve a index.html -->
       <a href="index.html" class="header-close" aria-label="Cerrar chat">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
           <line x1="18" y1="6" x2="6" y2="18"/>
@@ -492,19 +452,22 @@
 
 
     <!-- ══ SECCIÓN 2: MENSAJES ══ -->
-    <main class="messages-area" id="messages" aria-live="polite" aria-label="Conversación con Lexi">
+    <main class="messages-area" id="messages" aria-live="polite" aria-label="Conversación con SmileAI">
+
+      <!-- Aviso de demo -->
+      <div class="disclaimer-notice">
+        ⚠️ Esta es una demo de LAIA Solutions. Los precios, tratamientos, horarios y nombre de la clínica son ficticios — se adaptan al catálogo real de cada cliente.
+      </div>
 
       <div class="date-label">Hoy</div>
 
-      <!-- Mensaje inicial estático del agente -->
+      <!-- Mensaje inicial del agente -->
       <div class="message-bot">
-        Hola, soy Lexi, asistente virtual de Clínica Estética Lexi. ¿En qué le puedo ayudar?
-        <span class="msg-time">
-          <!-- JS puede actualizar esto -->
-        </span>
+        Hola, soy SmileAI, asistente virtual de Clínica Dental SmileAI. ¿En qué le puedo ayudar?
+        <span class="msg-time"></span>
       </div>
 
-      <!-- Indicador de "escribiendo…" — JS lo muestra/oculta -->
+      <!-- Indicador de escribiendo — JS lo muestra/oculta -->
       <div class="typing-indicator" id="typingIndicator">
         <span class="typing-dot"></span>
         <span class="typing-dot"></span>
@@ -530,8 +493,7 @@
       </div>
 
       <button id="sendButton" aria-label="Enviar mensaje">
-        <!-- Ícono avión de papel -->
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
           <path d="M22 2L11 13" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
           <path d="M22 2L15 22L11 13L2 9L22 2Z" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
